@@ -22,20 +22,35 @@
         /* canvas {
             position: absolute;
         } */
+        #video{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        #info{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.466);
+            color: white;
+            font-size: 2rem;
+        }
+        p{
+            margin: 5px 0;
+        }
         @media (max-width: 500px) {
-            #video{
-                width: 100%;
-                height: 100%;
-            }
         }
 
     </style>
 </head>
 
 <body>
-    <video id="video" width="600" height="500" autoplay muted></video>
-    <p>Your emootion is : <span id="emotion"></span></p>
-    <p>You are a <span id="gender"></span> aged somewhere <span id="age"></span></p>
+    <video id="video" autoplay muted></video>
+    <div id="info">
+        <p>Your emotion is : <span id="emotion"></span></p>
+        <p>You are a <span id="gender"></span> aged somewhere <span id="age"></span></p>
+    </div>
     
 </body>
 
