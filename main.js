@@ -1,9 +1,9 @@
 const video = document.querySelector('#video');
 let text = document.querySelector('#text');
 Promise.all([
-    faceapi.nets.tinyFaceDetector.loadFromUri("./models/"),
-    faceapi.nets.faceExpressionNet.loadFromUri("./models/"),
-    faceapi.nets.ageGenderNet.loadFromUri("./models/")
+    faceapi.nets.tinyFaceDetector.loadFromUri("https://uroljon.github.io/project_face_detection/models/"),
+    faceapi.nets.faceExpressionNet.loadFromUri("https://uroljon.github.io/project_face_detection/models/"),
+    faceapi.nets.ageGenderNet.loadFromUri("https://uroljon.github.io/project_face_detection/models/")
 ]).then(startVideo)
 
 // function startVideo() {
