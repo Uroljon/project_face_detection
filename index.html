@@ -27,7 +27,7 @@
             height: 100%;
             object-fit: cover;
         }
-        #info{
+        #info, #absence{
             position: absolute;
             bottom: 0;
             width: 100%;
@@ -36,22 +36,34 @@
             color: white;
             font-size: 2rem;
         }
+        #info.hidden{
+            display: none;
+        }
+        #absence.hidden{
+            display: none;
+        }
         p{
             margin: 5px 0;
         }
-        @media (max-width: 500px) {
+        #emotion, #gender, #age{
+            font-weight: bold;
         }
-
+        #emoji{
+            position: absolute;
+            top: 5px;
+            font-size: 6rem;
+        }
     </style>
 </head>
 
 <body>
+    <span id="emoji"></span>
     <video id="video" autoplay muted></video>
-    <div id="info">
-        <p>Your emotion is : <span id="emotion"></span></p>
+    <div id="info" class="hidden">
+        <p>Your mood is : <span id="emotion"></span></p>
         <p>You are a <span id="gender"></span> aged somewhere <span id="age"></span></p>
     </div>
-    
+    <div id="absence"><p>Where did you go 👀</p></div>
 </body>
 
 </html>
