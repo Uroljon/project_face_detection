@@ -1,30 +1,30 @@
 const video = document.querySelector('#video');
 let text = document.querySelector('#text');
-Promise.all([
+Promise.race([
     faceapi.nets.tinyFaceDetector.loadFromUri("./models/"),
     faceapi.nets.faceExpressionNet.loadFromUri("./models/"),
     faceapi.nets.ageGenderNet.loadFromUri("./models/")
 ]).then(startVideo)
 
-// function startVideo() {
-//     navigator.getUserMedia(
-//         { video: {} },
-//         stream => {
-//             video.srcObject = stream;
-//         },
-//         err => console.error(err)
-//     )
-// }
-async function startVideo() {
-    let stream = null;
-    try {
-        stream = await navigator.mediaDevices.getUserMedia({ video: {} });
-        video.srcObject = stream;    /* use the stream */
-       
-    } catch (err) {
-        console.error(err)  /* handle the error */
-    }
+function startVideo() {
+    navigator.getUserMedia(
+        { video: {} },
+        stream => {
+            video.srcObject = stream;
+        },
+        err => console.error(err)
+    )
 }
+// async function startVideo() {
+//     let stream = null;
+//     try {
+//         stream = await navigator.mediaDevices.getUserMedia({ video: {} });
+//         video.srcObject = stream;    /* use the stream */
+       
+//     } catch (err) {
+//         console.error(err)  /* handle the error */
+//     }
+// }
 video.addEventListener("playing", () => {
     setInterval(async () => {
         const detections = await faceapi
